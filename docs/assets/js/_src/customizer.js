@@ -79,7 +79,9 @@ window.onload = function () { // wait for load in a dumb way because B-0
 
     $('#less-variables-section input')
       .each(function () {
-        $(this).val() && (vars[$(this).prev().text()] = $(this).val())
+        if ($(this).val()) {
+          vars[$(this).prev().text()] = $(this).val()
+        }
       })
 
     var data = {
@@ -271,7 +273,9 @@ window.onload = function () { // wait for load in a dumb way because B-0
 
     $('#less-variables-section input')
       .each(function () {
-        $(this).val() && (vars[$(this).prev().text()] = $(this).val())
+        if ($(this).val()) {
+          vars[$(this).prev().text()] = $(this).val()
+        }
       })
 
     var bsLessSource    = preamble + generateLESS('bootstrap.less', lessFileIncludes, vars)
@@ -334,7 +338,9 @@ window.onload = function () { // wait for load in a dumb way because B-0
     dependencies = dependencies.split(',')
     for (var i = 0; i < dependencies.length; i++) {
       var dependency = $('[value="' + dependencies[i] + '"]')
-      dependency && dependency.prop('checked', true)
+      if (dependency) {
+        dependency.prop('checked', true)
+      }
     }
   })
 
@@ -349,7 +355,9 @@ window.onload = function () { // wait for load in a dumb way because B-0
     dependents = dependents.split(',')
     for (var i = 0; i < dependents.length; i++) {
       var dependent = $('[value="' + dependents[i] + '"]')
-      dependent && dependent.prop('checked', false)
+      if (dependent) {
+        dependent.prop('checked', false)
+      }
     }
   })
 
